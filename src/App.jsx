@@ -1,7 +1,7 @@
 import { Container } from "@mui/material"
 import Navbar from "./components/navbar/Navbar"
-import Home from "./pages/Home"
-import Login from "./pages/Login"
+import Graficas from "./pages/Graficas"
+import Tabla from "./pages/Tabla"
 import Register from "./pages/Register"
 import {Route, Routes} from 'react-router-dom'
 import InboxIcon from '@mui/icons-material/Inbox';
@@ -10,13 +10,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const navArrayLinks = [
   {
-      title: 'Home',
+      title: 'Graficas',
       path: '/',
       icon: <InboxIcon />
   },
   {
-      title: 'Login',
-      path: '/login',
+      title: 'Tabla de datos',
+      path: '/tabla',
       icon: <DraftsIcon />
   },
   {
@@ -35,11 +35,11 @@ function App() {
         <Routes>
           <Route
             path="/" 
-            element={<Home />}
+            element={<Graficas />}
           />
           <Route
-            path="/login" 
-            element={<Login />}
+            path="/tabla" 
+            element={<Tabla />}
           />
           <Route
             path="/register" 
