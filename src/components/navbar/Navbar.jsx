@@ -3,9 +3,9 @@ import NavListDrawer from "./NavListDrawer";
 import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@mui/material'
 import { Drawer } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-export default function Navbar({navArrayLinks}) {
+export default function Navbar({ navArrayLinks }) {
 
     const [open, setOpen] = useState(false)
 
@@ -17,7 +17,7 @@ export default function Navbar({navArrayLinks}) {
                         color="inherit"
                         size="large"
                         onClick={() => setOpen(true)}
-                        sx={{ display: {xs:'flex', sm:'none'} }}
+                        sx={{ display: { xs: 'flex', sm: 'none' } }}
                         edge='start'
                     >
                         <MenuIcon />
@@ -28,7 +28,7 @@ export default function Navbar({navArrayLinks}) {
                     >
                         DASHBOARD MOVILIZACIÓN
                     </Typography>
-                    <Box sx={{ display: { xs:'none', sm:'block' } }}>
+                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navArrayLinks.map((item) => (
                             <Button
                                 color="inherit"
@@ -47,10 +47,10 @@ export default function Navbar({navArrayLinks}) {
                 open={open}
                 anchor="left"
                 onClose={() => setOpen(false)}
-                sx={{ display: {xs:'flex', sm:'none'} }}
+                sx={{ display: { xs: 'flex', sm: 'none' } }}
             >
-                <NavListDrawer 
-                    navArrayLinks={navArrayLinks} 
+                <NavListDrawer
+                    navArrayLinks={navArrayLinks}
                     NavLink={NavLink}
                     setOpen={setOpen}
                 />
