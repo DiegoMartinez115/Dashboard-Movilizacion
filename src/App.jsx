@@ -63,7 +63,7 @@ function App() {
           />
         </Routes>
       </Container>
-      <Container sx={{ mt: 25 }}>
+      <Container sx={{ mt: 15, mx: 10 }}>
         <Routes>
           <Route
             path="/compromisos"

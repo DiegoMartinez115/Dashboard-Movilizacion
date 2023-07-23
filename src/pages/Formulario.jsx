@@ -5,7 +5,8 @@ import { Divider } from '@mui/material';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete'
 import Button from "@mui/material/Button"
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
-import SearchIcon from '@mui/icons-material/Search'; import { styled } from '@mui/material/styles';
+import SearchIcon from '@mui/icons-material/Search'
+import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
