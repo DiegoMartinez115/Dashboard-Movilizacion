@@ -1,4 +1,4 @@
-import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 
 export default function NavListDrawer({ navArrayLinks, NavLink, setOpen }) {
     return (
@@ -13,7 +13,7 @@ export default function NavListDrawer({ navArrayLinks, NavLink, setOpen }) {
                             <ListItemButton
                                 component={NavLink}
                                 to={item.path}
-                                onClick={() => setOpen(false)}
+                                onClick={() => setOpen(true)}
                             >
                                 <ListItemIcon>{item.icon}</ListItemIcon>
                                 <ListItemText>{item.title}</ListItemText>

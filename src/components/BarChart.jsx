@@ -1,4 +1,4 @@
-import { Bar } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2'
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -22,8 +22,8 @@ ChartJS.register(
     Filler
 );
 
-var beneficios = [72, 56, 20, 36, 80, 40, 30, -20, 25, 30, 12, 60];
-var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+var beneficios = [250000, 500000, 750000, 1000000, 1250000];
+var meses = ["R1", "R2", "R3", "R4", "R5", "R6", "R7"];
 
 var misoptions = {
     responsive : true,
@@ -35,8 +35,8 @@ var misoptions = {
     },
     scales : {
         y : {
-            min : -25,
-            max : 100
+            min : 0,
+            max : 1400000
         },
         x: {
             ticks: { color: 'rgba(0, 220, 195)'}

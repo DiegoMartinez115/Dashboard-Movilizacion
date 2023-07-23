@@ -3,19 +3,34 @@ import Navbar from "./components/navbar/Navbar"
 import Graficas from "./pages/Graficas"
 import Tabla from "./pages/Tabla"
 import { Route, Routes } from 'react-router-dom'
-import InboxIcon from '@mui/icons-material/Inbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
+import Formulario from "./pages/Formulario"
+import Compromisos from "./pages/Compromisos"
+import EqualizerIcon from '@mui/icons-material/Equalizer'
+import BallotIcon from '@mui/icons-material/Ballot'
+import AssignmentIcon from '@mui/icons-material/Assignment'
+import ListAltIcon from '@mui/icons-material/ListAlt'
+
 
 const navArrayLinks = [
   {
     title: 'Graficas',
     path: '/',
-    icon: <InboxIcon />
+    icon: <EqualizerIcon />
   },
   {
     title: 'Tabla de datos',
     path: '/tabla',
-    icon: <DraftsIcon />
+    icon: <BallotIcon />
+  },
+  {
+    title: 'Formulario',
+    path: '/formulario',
+    icon: <AssignmentIcon />
+  },
+  {
+    title: 'Compromisos',
+    path: '/compromisos',
+    icon: <ListAltIcon />
   }
 ]
 
@@ -24,15 +39,35 @@ function App() {
   return (
     <>
       <Navbar navArrayLinks={navArrayLinks} />
-      <Container sx={{ mt: 10 }}>
+      <Container sx={{ mt: 15, mx: 10 }}>
         <Routes>
           <Route
             path="/"
             element={<Graficas />}
           />
+        </Routes>
+      </Container>
+      <Container sx={{ mt: 25 }}>
+        <Routes>
           <Route
             path="/tabla"
             element={<Tabla />}
+          />
+        </Routes>
+      </Container>
+      <Container sx={{ mt: 25}}>
+        <Routes>
+          <Route
+            path="/formulario"
+            element={<Formulario />}
+          />
+        </Routes>
+      </Container>
+      <Container sx={{ mt: 25 }}>
+        <Routes>
+          <Route
+            path="/compromisos"
+            element={<Compromisos />}
           />
         </Routes>
       </Container>

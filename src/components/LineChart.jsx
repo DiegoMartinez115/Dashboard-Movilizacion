@@ -1,4 +1,4 @@
-import { Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2'
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -60,3 +60,4 @@ var misoptions = {
 export default function Lines() {
     return <Line data={midata} options={misoptions}/>
 }
+

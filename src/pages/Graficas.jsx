@@ -1,92 +1,83 @@
-import * as React from 'react';
-import Autocomplete, { autocompleteClasses } from '@mui/material/Autocomplete';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import { createTheme, useTheme, ThemeProvider } from '@mui/material/styles';
-import Bars from '../components/navbar/BarChart';
-import Lines from '../components/LineChart';
-const customTheme = (outerTheme) =>
-  createTheme({
-    palette: {
-      mode: outerTheme.palette.mode,
-    },
-    components: {
-      MuiAutocomplete: {
-        defaultProps: {
-          renderOption: (props, option, state, ownerState) => (
-            <Box
-              sx={{
-                borderRadius: '8px',
-                margin: '5px',
-                [`&.${autocompleteClasses.option}`]: {
-                  padding: '8px',
-                },
-              }}
-              component="li"
-              {...props}
-            >
-              {ownerState.getOptionLabel?.(option)}
-            </Box>
-          ),
-        },
-      },
-    },
-  });
+import * as React from 'react'
+import TextField from '@mui/material/TextField'
+import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete'
+import { Box } from '@mui/material'
+import Bars from '../components/BarChart'
+import Lines from '../components/LineChart'
+
+const filter = createFilterOptions();
 
 export default function Graficas() {
-  const outerTheme = useTheme();
-
+  const [value, setValue] = React.useState(null);
+  
   return (
     <>
       <h1>Distritación</h1>
-      <ThemeProvider theme={customTheme(outerTheme)}>
-        <Stack spacing={5} sx={{ width: 300 }}>
-          <Distrito />
-          <CountrySelect />
-        </Stack>
-      </ThemeProvider>
+      <React.Fragment>
+        <Autocomplete 
+          value={value}
+          onChange={(event, newValue) => {
+            if (typeof newValue === 'string') {
+              // timeout to avoid instant validation of the dialog's form.
+              setTimeout(() => {
+                toggleOpen(true);
+                setDialogValue({
+                  title: newValue,
+                  year: '',
+                });
+              });
+            } else if (newValue && newValue.inputValue) {
+              toggleOpen(true);
+              setDialogValue({
+                title: newValue.inputValue,
+                year: '',
+              });
+            } else {
+              setValue(newValue);
+            }
+          }}
+          filterOptions={(options, params) => {
+            const filtered = filter(options, params);
+
+            if (params.inputValue !== '') {
+              filtered.push({
+                inputValue: params.inputValue,
+                title: `Add "${params.inputValue}"`,
+              });
+            }
+
+            return filtered;
+          }}
+          id="free-solo-dialog-demo"
+          options={TipoDeDistrito}
+          getOptionLabel={(option) => {
+            // e.g value selected with enter, right from the input
+            if (typeof option === 'string') {
+              return option;
+            }
+            if (option.inputValue) {
+              return option.inputValue;
+            }
+            return option.title;
+          }}
+          selectOnFocus
+          clearOnBlur
+          handleHomeEndKeys
+          renderOption={(props, option) => <li {...props}>{option.title}</li>}
+          sx={{ width: 300 }}
+          freeSolo
+          renderInput={(params) => <TextField {...params} label="Vista" />}
+        />
+      </React.Fragment>
       <h1>Graficas</h1>
-      <Bars/> <Lines />
+      <Box display={'flex'} height={'465px'}>
+        <Box display={'flex'} m={5}><Bars /></Box>
+        <Box display={'flex'} m={5}><Lines /></Box>
+      </Box>
     </>
   );
 }
 
-
-
-function Distrito() {
-  return (
-    <Autocomplete
-      options={TipoDeDistrito}
-      getOptionLabel={(option) => `${option.title}`}
-      id="TP-customized-option-demo"
-      disableCloseOnSelect
-      renderInput={(params) => (
-        <TextField {...params} label="Elige un tipo de distrito" variant="standard" />
-      )}
-    />
-  );
-}
-
-function CountrySelect() {
-  return (
-    <Autocomplete
-      id="SD-customized-option-demo"
-      options={DEstatal}
-      disableCloseOnSelect
-      getOptionLabel={(option) =>
-        `(${option.code}) ${option.label}`
-      }
-      renderInput={(params) => <TextField {...params} label="Elige un distrito" />}
-    />
-  );
-}
-
-const DEstatal = [
-  { code: '4', label: 'Ejemplo1' },
-  { code: '5', label: 'Ejemplo2' },
-  { code: '6', label: 'Ejemplo3' }
-];
 
 const TipoDeDistrito = [
   { title: 'Federal' },
