@@ -64,17 +64,18 @@ export default function Formulario() {
 
     return (
         <>
-            <center>
-                <h1>Busqueda de responsable</h1>
-            </center>
+            <Box width={1650} >
+                <center>
+                    <h1>Busqueda de responsable</h1>
+                    <Divider />
+                </center>
+            </Box>
 
-            <Box mt={8} />
-            <Divider />
 
-            <Box mt={15} display={'flex'} height={'465px'}>
+            <Box width={1650} mt={15} display={'flex'} height={'465px'}>
 
                 <Box
-                    mx={5}
+                    mx={30}
                     sx={{
                         width: 800,
                         maxWidth: '100%',
@@ -84,7 +85,13 @@ export default function Formulario() {
                     <TextField fullWidth id="fullWidth" />
                 </Box>
 
-                <Box mx={5}>
+                <Box
+                    mx={-20}
+                    sx={{
+                        width: 800,
+                        maxWidth: '100%',
+                    }}
+                >
 
                     <h2>Municipio</h2>
 
@@ -110,18 +117,6 @@ export default function Formulario() {
                                 } else {
                                     setValue(newValue);
                                 }
-                            }}
-                            filterOptions={(options, params) => {
-                                const filtered = filter(options, params);
-
-                                if (params.inputValue !== '') {
-                                    filtered.push({
-                                        inputValue: params.inputValue,
-                                        title: `Add "${params.inputValue}"`,
-                                    });
-                                }
-
-                                return filtered;
                             }}
                             id="Municipios"
                             options={Prueba}
@@ -149,7 +144,14 @@ export default function Formulario() {
 
             </Box>
 
-            <Box mx={5} mt={-40}>
+            <Box
+                mx={30}
+                mt={-40}
+                sx={{
+                    width: 800,
+                    maxWidth: '100%',
+                }}
+            >
 
                 <h2>Secciones</h2>
 
@@ -212,7 +214,7 @@ export default function Formulario() {
 
             </Box>
 
-            <Box display={'flex'} mt={5}>
+            <Box display={'flex'} mt={5} mx={30}>
 
                 <Box mx={60}>
                     <Button
@@ -238,7 +240,7 @@ export default function Formulario() {
 
             </Box>
 
-            <Box mt={5}>
+            <Box mt={5} mx={30}>
 
                 <h4>Nombre:</h4>
 

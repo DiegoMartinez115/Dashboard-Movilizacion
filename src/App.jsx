@@ -1,15 +1,14 @@
-import { Container } from "@mui/material"
-import Navbar from "./components/navbar/Navbar"
-import Graficas from "./pages/Graficas"
-import Tabla from "./pages/Tabla"
-import { Route, Routes } from 'react-router-dom'
-import Formulario from "./pages/Formulario"
-import Compromisos from "./pages/Compromisos"
-import EqualizerIcon from '@mui/icons-material/Equalizer'
-import BallotIcon from '@mui/icons-material/Ballot'
-import AssignmentIcon from '@mui/icons-material/Assignment'
-import ListAltIcon from '@mui/icons-material/ListAlt'
-
+import { Container } from "@mui/material";
+import Navbar from "./components/navbar/Navbar";
+import Graficas from "./pages/Graficas";
+import Tabla from "./pages/Tabla";
+import { Route, Routes } from 'react-router-dom';
+import Formulario from "./pages/Formulario";
+import Compromisos from "./pages/Compromisos";
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import BallotIcon from '@mui/icons-material/Ballot';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import ListAltIcon from '@mui/icons-material/ListAlt';
 
 const navArrayLinks = [
   {
@@ -32,10 +31,9 @@ const navArrayLinks = [
     path: '/compromisos',
     icon: <ListAltIcon />
   }
-]
+];
 
 function App() {
-
   return (
     <>
       <Navbar navArrayLinks={navArrayLinks} />
@@ -45,26 +43,14 @@ function App() {
             path="/"
             element={<Graficas />}
           />
-        </Routes>
-      </Container>
-      <Container sx={{ mt: 25 }}>
-        <Routes>
           <Route
             path="/tabla"
             element={<Tabla />}
           />
-        </Routes>
-      </Container>
-      <Container sx={{ mt: 25}}>
-        <Routes>
           <Route
             path="/formulario"
             element={<Formulario />}
           />
-        </Routes>
-      </Container>
-      <Container sx={{ mt: 15, mx: 10 }}>
-        <Routes>
           <Route
             path="/compromisos"
             element={<Compromisos />}
@@ -72,7 +58,7 @@ function App() {
         </Routes>
       </Container>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
