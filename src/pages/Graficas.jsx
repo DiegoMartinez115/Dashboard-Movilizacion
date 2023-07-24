@@ -4,6 +4,7 @@ import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { Box } from '@mui/material';
 import Bars from '../components/BarChart';
 import Lines from '../components/LineChart';
+import { ResponsiveBar } from "@nivo/bar";
 
 const filter = createFilterOptions();
 

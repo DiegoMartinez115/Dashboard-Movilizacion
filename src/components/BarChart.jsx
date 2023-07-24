@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, BarElement, Title, Tooltip, Legend, Filler } from 'chart.js';
-import 'chartjs-plugin-datalabels'; // Import the plugin
+import 'chartjs-plugin-datalabels'; 
 
 ChartJS.register(
   CategoryScale,
@@ -17,6 +17,9 @@ ChartJS.register(
 var meses = ["R1", "R2", "R3", "R4", "R5", "R6", "R7"];
 
 var misoptions = {
+  responsive: true,
+  maintainAspectRatio: false, // Set this to false to make the chart responsive
+  aspectRatio: 1.5,
 };
 
 var pastelColors = [

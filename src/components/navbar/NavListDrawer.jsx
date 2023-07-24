@@ -13,7 +13,7 @@ export default function NavListDrawer({ navArrayLinks, NavLink, setOpen }) {
                             <ListItemButton
                                 component={NavLink}
                                 to={item.path}
-                                onClick={() => setOpen(true)}
+                                onClick={() => setOpen(false)}
                             >
                                 <ListItemIcon>{item.icon}</ListItemIcon>
                                 <ListItemText>{item.title}</ListItemText>

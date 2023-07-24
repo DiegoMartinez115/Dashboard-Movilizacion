@@ -96,6 +96,9 @@ var misoptions = {
       },
     },
   },
+  responsive: true,
+  maintainAspectRatio: false, // Set this to false to make the chart responsive
+  aspectRatio: 1.5,
 };
 
 const getRandomData = () => {
